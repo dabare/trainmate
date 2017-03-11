@@ -88,4 +88,4 @@ function serialListener(debug)
     });
 }
 
-exports.start = startServer;
+//exports.start = startServer;
