@@ -1,5 +1,5 @@
-var server = require("./server.js");
-var router = require("./route.js");
+//var server = require("./server");
+//var router = require("./route");
 //var requestHandlers = require("./requestHandlers");
 
 //var debug = false;
