@@ -22,7 +22,7 @@ function startServer(route,handle,debug)
 	  var content = route(handle,pathname,response,request,debug);
 	}
 
-	var httpServer = http.createServer(onRequest).listen(1337, function(){
+	var httpServer = http.createServer(onRequest).listen(process.env.PORT || 8080, function(){
 		console.log("Listening at: http://localhost:1337");
 		console.log("Server is up");
 	});
