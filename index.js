@@ -1,5 +1,6 @@
+var http = require('http');
 //var server = require("./server");
-//var router = require("./route");
+var router = require("./route");
 //var requestHandlers = require("./requestHandlers");
 
 //var debug = false;
@@ -10,7 +11,7 @@
 
 //server.start(router.route,handle,debug);
 
-var http = require('http');
+
 
 http.createServer(function (req, res) {
 
