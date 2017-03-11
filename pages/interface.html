@@ -7,6 +7,9 @@
 	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
     <script>
+    $('#sliderTxt').click(function(){
+  alert("The paragraph was clicked.");
+   });
 
 	var iosocket;
 
@@ -17,6 +20,7 @@
 
 		iosocket.on('updates', function (latitude) {
 		alert(latitude);
+
     $('#sliderTxt').html(latitude);
 
 		});
