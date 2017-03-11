@@ -7,7 +7,7 @@ var debug = false;
 
 var handle = {}
 handle["/"] = requestHandlers.sendInterface;
-//handle["/interface"] = requestHandlers.sendInterface;*/
+handle["/interface"] = requestHandlers.sendInterface;
 
 //server.start(router.route,handle,debug);
 
