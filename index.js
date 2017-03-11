@@ -3,13 +3,13 @@ var http = require('http');
 var router = require("./route");
 var requestHandlers = require("./requestHandlers");
 
-/*var debug = false;
+var debug = false;
 
 var handle = {}
 handle["/"] = requestHandlers.sendInterface;
 handle["/interface"] = requestHandlers.sendInterface;
 
-server.start(router.route,handle,debug);*/
+server.start(router.route,handle,debug);
 
 
 
