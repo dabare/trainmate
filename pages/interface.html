@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+ <html>
+   <head>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+
+        <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+    <script>
+
+	var iosocket;
+
+	function initSocketIO()
+	{
+		iosocket = io.connect();
+		iosocket.on('onconnection', function(value) {
+
+		iosocket.on('updates', function (latitude) {
+		alert(latitude);
+    $('#sliderTxt').html(latitude);
+
+		});
+	    });
+	}
+
+	window.onload = function() {
+	     initSocketIO();
+        };
+
+    </script>
+  </head>
+  <body>
+
+	<center><h2>TrainMate Location Tracker</h2>
+
+	<p id="sliderTxt">Latitude=? Longitude=?</p>
+</center>
+
+  </body>
+</html>
