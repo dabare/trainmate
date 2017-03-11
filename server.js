@@ -1,7 +1,7 @@
 var fs = require('fs'),
 http = require('http'),
 socketio = require('socket.io'),
-url = require("url"),
+url = require("url");
 //SerialPort = require("serialport")
 
 var socketServer;
