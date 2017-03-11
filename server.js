@@ -22,7 +22,7 @@ function startServer(route,handle,debug)
 	  var content = route(handle,pathname,response,request,debug);
 	}
 
-	var httpServer = http.createServer(onRequest).listen(, function(){
+	var httpServer = http.createServer(onRequest).listen(process.env.PORT || 8080, function(){
 		console.log("Listening at: http://localhost:1337");
 		console.log("Server is up");
 	});
@@ -30,27 +30,6 @@ function startServer(route,handle,debug)
 	//initSocketIO(httpServer,debug);
 }
 
-function initSocketIO(httpServer,debug)
-{
-	socketServer = socketio.listen(httpServer);
-	if(debug == false){
-		socketServer.set('log level', 1); // socket IO debug off
-	}
-
-	socketServer.on('connection', function (socket) {
-	//console.log('connected');
-	socket.emit('onconnection', {pollOneValue:sendData});
-	socketServer.on('update', function(data) {
-	socket.emit('updateData',{pollOneValue:data});
-	});
-	socket.on('message', function(data) {
-
-		socketServer.emit('updates',data);
-
-	});
-
-    });
-}
 
 // Listen to serial port
-//exports.start = startServer;
+exports.start = startServer;
