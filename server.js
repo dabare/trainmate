@@ -2,7 +2,7 @@ var fs = require('fs'),
 http = require('http'),
 socketio = require('socket.io'),
 url = require("url"),
-SerialPort = require("serialport")
+//SerialPort = require("serialport")
 
 var socketServer;
 var serialPort;
