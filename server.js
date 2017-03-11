@@ -36,10 +36,7 @@ function initSocketIO(httpServer,debug)
 	if(debug == false){
 		socketServer.set('log level', 1); // socket IO debug off
 	}
-	socketServer.configure(function () {
-        socketServer.set('transports', ['websocket','xhr-polling']);
-		 });
-
+	
 	socketServer.on('connection', function (socket) {
 	//console.log('connected');
 	socket.emit('onconnection', {pollOneValue:sendData});
