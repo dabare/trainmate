@@ -22,12 +22,12 @@ function startServer(route,handle,debug)
 	  var content = route(handle,pathname,response,request,debug);
 	}
 
-	var httpServer = http.createServer(onRequest).listen(1337, function(){
+	var httpServer = http.createServer(onRequest).listen(, function(){
 		console.log("Listening at: http://localhost:1337");
 		console.log("Server is up");
 	});
 	//serialListener(debug);
-	initSocketIO(httpServer,debug);
+	//initSocketIO(httpServer,debug);
 }
 
 function initSocketIO(httpServer,debug)
