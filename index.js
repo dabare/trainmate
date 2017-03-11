@@ -1,10 +1,10 @@
-var server = require("./server");
-var router = require("./route");
-var requestHandlers = require("./requestHandlers");
+//var server = require("./server");
+//var router = require("./route");
+//var requestHandlers = require("./requestHandlers");
 
-var debug = false;
+//var debug = false;
 
-var handle = {}
+//var handle = {}
 //handle["/"] = requestHandlers.sendInterface;
 //handle["/interface"] = requestHandlers.sendInterface;
 
