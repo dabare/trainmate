@@ -1,5 +1,5 @@
 var http = require('http');
-//var server = require("./server");
+var server = require("./server");
 var router = require("./route");
 var requestHandlers = require("./requestHandlers");
 
