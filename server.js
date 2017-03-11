@@ -27,7 +27,7 @@ function startServer(route,handle,debug)
 		console.log("Server is up");
 	});
 	//serialListener(debug);
-	//initSocketIO(httpServer,debug);
+	initSocketIO(httpServer,debug);
 }
 
 function initSocketIO(httpServer,debug)
