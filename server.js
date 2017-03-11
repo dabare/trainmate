@@ -1,5 +1,5 @@
-var fs = require('fs')
-,http = require('http'),
+//var fs = require('fs'),
+var http = require('http'),
 socketio = require('socket.io'),
 url = require("url"),
 SerialPort = require("serialport")
