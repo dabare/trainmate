@@ -53,4 +53,4 @@ function initSocketIO(httpServer,debug)
 }
 
 // Listen to serial port
-exports.start = startServer;
+//exports.start = startServer;
