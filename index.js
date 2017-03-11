@@ -1,7 +1,7 @@
 var http = require('http');
 //var server = require("./server");
 var router = require("./route");
-//var requestHandlers = require("./requestHandlers");
+var requestHandlers = require("./requestHandlers");
 
 //var debug = false;
 
