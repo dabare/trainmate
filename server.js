@@ -9,12 +9,6 @@ var serialPort;
 var portName = 'COM5'; //change this to your Arduino port
 var sendData = "";
 
-http.createServer(function (req, res) {
-
-	res.writeHead(200, { 'Content-Type': 'text/html' });
-	res.end('Hello, world!');
-
-}).listen(process.env.PORT || 8080);
 // handle contains locations to browse to (vote and poll); pathnames.
 function startServer(route,handle,debug)
 {
@@ -28,12 +22,10 @@ function startServer(route,handle,debug)
 	  var content = route(handle,pathname,response,request,debug);
 	}
 
-
-
-/*var httpServer = http.createServer(onRequest).listen(process.env.PORT || 8080, function(){
+	var httpServer = http.createServer(onRequest).listen(process.env.port || 8080, function(){
 		console.log("Listening at: http://localhost:1337");
 		console.log("Server is up");
-	});*/
+	});
 	//serialListener(debug);
 	initSocketIO(httpServer,debug);
 }
@@ -88,4 +80,4 @@ function serialListener(debug)
     });
 }
 
-//exports.start = startServer;
+exports.start = startServer;
