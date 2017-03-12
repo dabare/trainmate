@@ -93,21 +93,21 @@
 	  animation(poll1,text);
 	 });
 	}
-var i=0;
+
 	function initSocketIO()
 	{
 		iosocket = io.connect();
 		iosocket.on('onconnection', function(value) {
-		pollOneH = value.pollOneValue/2; // recieve start poll value from server
-		initPoll();
-		initButton();
-		initSlider();
+		//pollOneH = value.pollOneValue/2; // recieve start poll value from server
+		//initPoll();
+		//initButton();
+		//initSlider();
 
 		// recieve changed values by other client from server
 		iosocket.on('updates', function (recievedData) {
-		$('#sliderTxt').html(i);
+		$('#sliderTxt').html("kk");
     //alert('ok');
-    i++;
+
 			//pollOneH = recievedData.pollOneValue/2; // recieve start poll value from server
 		});
 	    });
@@ -147,7 +147,7 @@ var i=0;
 	}
 
 	window.onload = function() {
-	     //initSocketIO();
+	     initSocketIO();
         };
 
       $(document).ready(function() {
