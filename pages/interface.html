@@ -96,7 +96,7 @@
 
 	function initSocketIO()
 	{
-		iosocket = io.connect();
+		//iosocket = io.connect();
 
     iosocket = io({transports: ['websocket'], upgrade: false});
 		/*iosocket.on('onconnection', function(value) {
