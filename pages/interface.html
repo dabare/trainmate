@@ -99,20 +99,20 @@
 		iosocket = io.connect('http://trainmate.azurewebsites.net:80');
 
     iosocket = io({transports: ['websocket'], upgrade: false});
-		/*iosocket.on('onconnection', function(value) {
+		iosocket.on('onconnection', function(value) {
 		//pollOneH = value.pollOneValue/2; // recieve start poll value from server
 		//initPoll();
 		//initButton();
 		//initSlider();
 
-		// recieve changed values by other client from server
+		 //recieve changed values by other client from server
 		iosocket.on('updates', function (recievedData) {
 		$('#sliderTxt').html("kk");
     //alert('ok');
 
 			//pollOneH = recievedData.pollOneValue/2; // recieve start poll value from server
 		});
-  });*/
+  });
 	}
 
 	function initPoll()
