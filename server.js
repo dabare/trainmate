@@ -37,14 +37,10 @@ function initSocketIO(httpServer,debug)
 		socketServer.set('log level', 1); // socket IO debug off
 	}
 
-	 socketServer.set('transports', ['xhr-polling']);
+	 //socketServer.set('transports', ['xhr-polling']);
 
 	socketServer.on('connection', function (socket) {
-	//console.log('connected');
-	socket.emit('onconnection', {pollOneValue:sendData});
-	socketServer.on('update', function(data) {
-	socket.emit('updateData',{pollOneValue:data});
-	});
+
 	socket.on('message', function(data) {
 
 		socketServer.emit('updates',data);
