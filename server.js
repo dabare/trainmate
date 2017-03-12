@@ -2,7 +2,7 @@ var fs = require('fs')
 ,http = require('http'),
 socketio = require('socket.io'),
 url = require("url");
-
+//SerialPort = require("serialport")
 
 var socketServer;
 var serialPort;
@@ -37,10 +37,12 @@ function initSocketIO(httpServer,debug)
 		socketServer.set('log level', 1); // socket IO debug off
 	}
 
-	 socketServer.set('transports', ['websocket']);
-
 	socketServer.on('connection', function (socket) {
-
+	//console.log('connected');
+	socket.emit('onconnection', {pollOneValue:sendData});
+	socketServer.on('update', function(data) {
+	socket.emit('updateData',{pollOneValue:data});
+	});
 	socket.on('message', function(data) {
 
 		socketServer.emit('updates',data);
@@ -75,7 +77,7 @@ function initSocketIO(httpServer,debug)
          // send the incoming data to browser with websockets.
        socketServer.emit('update', sendData);
       });
-    });
-}*/
+    });*/
+
 
 exports.start = startServer;
