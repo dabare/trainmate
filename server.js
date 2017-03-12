@@ -22,7 +22,7 @@ function startServer(route,handle,debug)
 	  var content = route(handle,pathname,response,request,debug);
 	}
 
-	var httpServer = http.createServer(onRequest).listen(process.env.PORT || 1337, function(){
+	var httpServer = http.createServer(onRequest).listen(process.env.PORT || 80, function(){
 		console.log("Listening at: http://localhost:80");
 		console.log("Server is up");
 	});
@@ -37,7 +37,7 @@ function initSocketIO(httpServer,debug)
 		socketServer.set('log level', 1); // socket IO debug off
 	}
 
-	socketServer.set('transports', ['websocket','xhr-polling']);
+	//socketServer.set('transports', ['websocket','xhr-polling']);
 
 	socketServer.on('connection', function (socket) {
 	//console.log('connected');
