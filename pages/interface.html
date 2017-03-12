@@ -40,7 +40,7 @@
 
 		iosocket = io.connect();
 
-iosocket = io({transports: ['websocket','polling'], upgrade: true});
+iosocket = io({transports: ['websocket','polling'], upgrade: false});
 
 		iosocket.on('onconnection', function(value) {
 
