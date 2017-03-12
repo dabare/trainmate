@@ -41,10 +41,7 @@ function initSocketIO(httpServer,debug)
 
 	socketServer.on('connection', function (socket) {
 	//console.log('connected');
-	socket.emit('onconnection', {pollOneValue:sendData});
-	socketServer.on('update', function(data) {
-	socket.emit('updateData',{pollOneValue:data});
-	});
+	
 	socket.on('message', function(data) {
 
 		socketServer.emit('updates',data);
