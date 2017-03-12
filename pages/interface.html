@@ -98,7 +98,8 @@
 	{
 		iosocket = io.connect();
 
-    iosocket = io({transports: ['websocket'], upgrade: false});
+    //iosocket = io({transports: ['websocket','xhr-polling'], upgrade: false});
+
 		iosocket.on('onconnection', function(value) {
 		//pollOneH = value.pollOneValue/2; // recieve start poll value from server
 		//initPoll();
