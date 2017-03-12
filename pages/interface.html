@@ -34,6 +34,25 @@
 	<script src="http://trainmate.azurewebsites.net:80/socket.io/socket.io.js"></script>
     <script>
 
+	function initSocketIO()
+	{
+		iosocket = io.connect();
+		iosocket.on('onconnection', function(value) {
+		pollOneH = value.pollOneValue/2; // recieve start poll value from server
+		initPoll();
+		initButton();
+		initSlider();
+
+		// recieve changed values by other client from server
+		iosocket.on('updates', function (recievedData) {
+		$('#sliderTxt').html(i);
+    //alert('ok');
+  
+			//pollOneH = recievedData.pollOneValue/2; // recieve start poll value from server
+		});
+	    });
+	}
+
 	window.onload = function() {
 	     initSocketIO();
         };
