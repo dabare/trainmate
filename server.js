@@ -53,7 +53,7 @@ function initSocketIO(httpServer,debug)
 }
 
 // Listen to serial port
-function serialListener(debug)
+/*function serialListener(debug)
 {
     var receivedData = "";
     serialPort = new SerialPort(portName, {
@@ -78,6 +78,6 @@ function serialListener(debug)
        socketServer.emit('update', sendData);
       });
     });
-}
+}*/
 
 exports.start = startServer;
