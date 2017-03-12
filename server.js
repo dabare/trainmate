@@ -37,7 +37,7 @@ function initSocketIO(httpServer,debug)
 		socketServer.set('log level', 1); // socket IO debug off
 	}
 
-socketServer.set('transports', ['websocket','xhr-polling']);
+socketServer.set('transports',{'transports': ['websocket', 'polling']});
 
 	socketServer.on('connection', function (socket) {
 
