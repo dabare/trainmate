@@ -37,7 +37,7 @@ function initSocketIO(httpServer,debug)
 		socketServer.set('log level', 1); // socket IO debug off
 	}
 
-	 socketServer.set('transports', ['websocket']);
+	 socketServer.set('transports', 'websocket');
 
 	socketServer.on('connection', function (socket) {
 
