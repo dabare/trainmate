@@ -1,8 +1,8 @@
-var fs = require('fs'),
-http = require('http'),
+var fs = require('fs')
+,http = require('http'),
 socketio = require('socket.io'),
-url = require("url");
-//SerialPort = require("serialport")
+url = require("url"),
+SerialPort = require("serialport")
 
 var socketServer;
 var serialPort;
@@ -22,7 +22,7 @@ function startServer(route,handle,debug)
 	  var content = route(handle,pathname,response,request,debug);
 	}
 
-	var httpServer = http.createServer(onRequest).listen(process.env.PORT || 8080, function(){
+	var httpServer = http.createServer(onRequest).listen(process.env.PORT ||8080, function(){
 		console.log("Listening at: http://localhost:1337");
 		console.log("Server is up");
 	});
@@ -36,8 +36,6 @@ function initSocketIO(httpServer,debug)
 	if(debug == false){
 		socketServer.set('log level', 1); // socket IO debug off
 	}
-
-  socketServer.set('transports', ['websocket','xhr-polling']);
 
 	socketServer.on('connection', function (socket) {
 	//console.log('connected');
@@ -55,4 +53,31 @@ function initSocketIO(httpServer,debug)
 }
 
 // Listen to serial port
+function serialListener(debug)
+{
+    var receivedData = "";
+    serialPort = new SerialPort(portName, {
+        baudrate: 9600,
+        // defaults for Arduino serial communication
+         dataBits: 8,
+         parity: 'none',
+         stopBits: 1,
+         flowControl: false
+    });
+
+    serialPort.on("open", function () {
+      console.log('open serial communication');
+            // Listens to incoming data
+        serialPort.on('data', function(data) {
+             receivedData += data.toString();
+          if (receivedData .indexOf('E') >= 0 && receivedData .indexOf('B') >= 0) {
+           sendData = receivedData .substring(receivedData .indexOf('B') + 1, receivedData .indexOf('E'));
+           receivedData = '';
+         }
+         // send the incoming data to browser with websockets.
+       socketServer.emit('update', sendData);
+      });
+    });
+}
+
 exports.start = startServer;

@@ -1,4 +1,4 @@
-// functions that will be executed when
+// functions that will be executed when 
 // typeoff handle[pathname] === a function in requestHandlers.
 // the handle and function are discribed in index.js
 
